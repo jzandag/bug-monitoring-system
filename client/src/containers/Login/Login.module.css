@@ -1,0 +1,52 @@
+.LoginBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    height: 70%;
+    margin: auto;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 3px 6px rgb(13, 56, 13);
+}
+
+.LoginBox img{
+    text-align: center;
+    min-height: 70px;
+}
+.LoginBox p{
+    text-align: center;
+    margin: 0 10px;
+    font-size: 50px;
+}
+.LoginBox p.right{
+    border-top: red solid 1px;
+    border-right: red solid 1px;
+    border-bottom: red solid 1px;
+    border-radius: 0 40px 40px 0;
+}
+.LoginBox p.left{
+    border-top: red solid 1px;
+    border-left: red solid 1px;
+    border-bottom: red solid 1px;
+    border-radius: 40px 0 0 40px;
+}
+
+.Logo{
+    height: 120px;
+    text-align: center;
+}
+
+@media(min-width: 800px){
+    .LoginBox{
+        height: 50%;
+    }   
+}
+@media(min-width: 500px){
+    .LoginBox{
+        width: 400px;
+    }
+}
