@@ -4,6 +4,7 @@ import classes from './Login.module.css'
 import Logo from '../../components/UI/Logo/Logo';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner'
 
 class Login extends Component {
     state = {
@@ -32,7 +33,7 @@ class Login extends Component {
     }
 
     loginHandler = () => {
-
+        this.setState({loading: true})
     }
 
     inputChangeHandler = (event ,id) => {
@@ -63,14 +64,15 @@ class Login extends Component {
                             value={f.config.value}
                             change={(event) => this.inputChangeHandler(event, f.id)}
                             touch={f.config.touch}
-                            label={f.config.label}
-                            
+                            label={f.config.label}      
                     />
                 }) 
                 }
                 <Button buttonType='Primary' >LOGIN</Button>
             </form>
         )
+        if(this.state.loading)
+            form = <Spinner />
         return (
             <div className={classes.LoginBox}>
                 <div className={classes.Logo}>

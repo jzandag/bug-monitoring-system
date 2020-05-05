@@ -8,18 +8,21 @@
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
+    text-indent: 10px;
     font-size: 20px;
 }
 
 .InputElement{
     outline:none;
     border: 1px solid #ccc;
+    border-radius: 20px;
     background-color: white;
     font: inherit;
-    padding: 6px 10px;
+    padding: 6px 15px;
     width: 100%;
     display: block;
     box-sizing: border-box;
+
 }
 
 .InputElement:focus{

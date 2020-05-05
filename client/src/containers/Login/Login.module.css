@@ -11,28 +11,36 @@
     border-radius: 15px;
     box-sizing: border-box;
     box-shadow: 0 5px 3px 6px rgb(13, 56, 13);
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+}
+
+@keyframes fadeIn {
+    0%{
+        bottom: 300px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+.LoginBox h1{
+    text-align: center;
 }
 
 .LoginBox img{
     text-align: center;
     min-height: 70px;
 }
-.LoginBox p{
+.LoginBox button{
     text-align: center;
-    margin: 0 10px;
-    font-size: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 5px;
 }
-.LoginBox p.right{
-    border-top: red solid 1px;
-    border-right: red solid 1px;
-    border-bottom: red solid 1px;
-    border-radius: 0 40px 40px 0;
-}
-.LoginBox p.left{
-    border-top: red solid 1px;
-    border-left: red solid 1px;
-    border-bottom: red solid 1px;
-    border-radius: 40px 0 0 40px;
+.LoginBox button:hover{
+    color: white;
+    transform: scale(1.1);
 }
 
 .Logo{
@@ -40,13 +48,28 @@
     text-align: center;
 }
 
-@media(min-width: 800px){
+@media only screen and (orientation: portrait){
     .LoginBox{
-        height: 50%;
+        height: 75%;
     }   
 }
-@media(min-width: 500px){
+
+@media only screen and (orientation: landscape) and (min-width: 1000px){
     .LoginBox{
-        width: 400px;
+        height: 450px;
+        width: 40%;
+    }   
+}
+@media(min-width: 750px) and (orientation: portrait){
+    .LoginBox{
+        height: 50%;
+    }
+}
+
+@media(min-height: 800px) and (min-width: 700px){
+    .LoginBox{
+        height: 45%;
+        width: 40%;
+        font-size: 25px;
     }
 }

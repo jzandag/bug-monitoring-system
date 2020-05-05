@@ -10,10 +10,6 @@
     font-weight: bold;
 }
 
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
-}
 .Button:disabled {
     color : #ccc;
     cursor: not-allowed;
@@ -28,6 +24,6 @@
 }
 
 .Primary{
-    color: red;
+    color: black;
     background: linear-gradient(45deg, rgb(35, 116, 42), rgb(63, 175, 101));
 }
