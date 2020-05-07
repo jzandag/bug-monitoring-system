@@ -1,14 +1,12 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Login from './containers/Login/Login'
+import {BrowserRouter} from 'react-router-dom'
 import './App.css';
+import MainComponent from './containers/MainComponent/MainComponent';
 
 function App() {
   return (
     <BrowserRouter className="App">
-        <Switch>
-            <Route path="/login" component={Login}/>
-        </Switch>
+        <MainComponent />
     </BrowserRouter>
   );
 }

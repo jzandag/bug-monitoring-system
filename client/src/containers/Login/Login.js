@@ -6,6 +6,8 @@ import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner'
 
+import AuthContext from '../../context/AuthContext'
+import { Redirect } from 'react-router-dom';
 class Login extends Component {
     state = {
         form: {
@@ -29,7 +31,9 @@ class Login extends Component {
                 value: ''
             }
         }, 
-        loading: false
+        loading: false,
+
+        authenticated: false
     }
 
     loginHandler = () => {
@@ -45,7 +49,6 @@ class Login extends Component {
        formData[id] = formElement
        this.setState({form: formData})
     }
-
     render() {
         const formElements =  []
         for(let key in this.state.form){
@@ -55,33 +58,37 @@ class Login extends Component {
             })
         }
         let form = (
-            <form className={classes.FormLogin} onSubmit={this.loginHandler}>
-                {formElements.map(f => {
-                    return <Input 
-                            key={f.id}
-                            elementType={f.config.elementType}
-                            elementConfig={f.config.elementConfig}
-                            value={f.config.value}
-                            change={(event) => this.inputChangeHandler(event, f.id)}
-                            touch={f.config.touch}
-                            label={f.config.label}      
-                    />
-                }) 
-                }
-                <Button buttonType='Primary' >LOGIN</Button>
-            </form>
+            <AuthContext.Consumer>
+                {context => {
+                    if(context.isAuthenticated())
+                        return <Redirect to="/dashboard"/>
+                    return <form className={classes.FormLogin} onSubmit={(e) =>context.login(e, ()=> {this.props.history.push('/dashboard')})}>
+                        {formElements.map(f => {
+                            return <Input 
+                                    key={f.id}
+                                    elementType={f.config.elementType}
+                                    elementConfig={f.config.elementConfig}
+                                    value={f.config.value}
+                                    change={(event) => this.inputChangeHandler(event, f.id)}
+                                    touch={f.config.touch}
+                                    label={f.config.label}
+                            />
+                        }) 
+                        }
+                        <Button buttonType='Primary' >LOGIN</Button>
+                    </form>
+                }}
+            </AuthContext.Consumer>
         )
         if(this.state.loading)
             form = <Spinner />
         return (
+            
             <div className={classes.LoginBox}>
                 <div className={classes.Logo}>
                     <Logo />
                 </div>
                 <h1>Login to dashboard</h1>
-                {/* <p className={classes.right}>Bug</p>
-                <p className={classes.left}>Monitoring</p>
-                <p className={classes.right}>System</p> */}
                 {form}
             </div>
         );
