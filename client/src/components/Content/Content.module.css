@@ -1,0 +1,22 @@
+.Content{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "mybugs logs"
+        "allbugs logs"
+        ;
+    margin: auto;
+    width: 95%;
+    gap: 20px 20px;
+}
+
+@media(max-width: 500px){
+    .Content{
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "mybugs"
+            "allbugs"
+            "logs"
+        ;
+    }
+}

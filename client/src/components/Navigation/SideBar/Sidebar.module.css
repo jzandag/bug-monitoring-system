@@ -1,0 +1,33 @@
+.Sidebar{
+    position: fixed;
+    width: 200px;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    background: linear-gradient(45deg, #2F4858, #27656E);
+    padding: 32px 0;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+    border-right: #394B41 15px solid;
+}
+
+@media(min-width: 500px){
+    .SideDrawer{
+        display: none;
+    }
+}
+
+.Open{
+    transform: translateX(0);
+}
+
+.Close{
+    transform: translateX(-100%);
+}
+
+.Logo {
+    height: 15%;
+    margin-bottom: 32px;
+}

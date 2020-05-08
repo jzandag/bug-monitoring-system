@@ -1,0 +1,6 @@
+.Logs{
+    grid-area: logs;
+    border: 1px solid orangered;
+    box-sizing: border-box;
+    
+}

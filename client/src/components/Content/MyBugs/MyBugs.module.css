@@ -1,0 +1,17 @@
+.MyBugs{
+    grid-area: mybugs;
+    border: solid springgreen 1px;
+    box-sizing: border-box;
+    min-height: 400px;
+    height: auto;
+    background-color: #CEFBE3;
+    border-radius: 20px;
+}
+.Header{
+    border-bottom: black 2px solid;
+}
+.Header h1{
+    height: 100%;
+    text-indent: 25px;
+    margin: 10px 0;
+}

@@ -2,11 +2,12 @@ import React from 'react';
 
 import classes from './MenuBar.module.css'
 import Logo from '../../UI/Logo/Logo';
+import SidebarToggle from '../SideBar/SidebarToggle/SidebarToggle';
 
 const MenuBar = (props) => {
     return (
         <header className={classes.MenuBar}>
-            <div>XXX</div>
+            <SidebarToggle toggle={props.click}/>
             <div className={classes.Logo}>
                 <Logo />
             </div>
