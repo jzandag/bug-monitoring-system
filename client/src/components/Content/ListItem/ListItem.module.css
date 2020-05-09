@@ -1,0 +1,26 @@
+.ListItem{
+    height: 100%;
+    margin: 0px;
+    border-bottom: #4F8F70 1px solid;
+    box-sizing: border-box;
+    display: block;
+}
+.ListItem a{
+    padding: 5px 10px 0 10px;
+    font-size: 20px;
+    color: blueviolet;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.ListItem a:hover,
+.ListItem a:focus{
+    text-decoration: underline;
+}
+.ListItem .Under {
+    padding: 0;
+    margin: 0 10px;
+    font-size: 11px;
+}
+.Under p{
+    margin: 0
+}

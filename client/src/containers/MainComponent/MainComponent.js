@@ -23,6 +23,9 @@ class MainComponent extends Component {
     isAuthenticated = () => {
         return localStorage.getItem('authenticated');
     }
+    isPageRefreshed() {
+        return window.performance && performance.navigation.type === 1;
+    }
     render() {
         return (
             <React.Fragment>

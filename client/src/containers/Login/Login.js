@@ -8,6 +8,7 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 
 import AuthContext from '../../context/AuthContext'
 import { Redirect } from 'react-router-dom';
+import Error from '../../components/UI/Error/Error';
 class Login extends Component {
     state = {
         form: {
@@ -32,8 +33,8 @@ class Login extends Component {
             }
         }, 
         loading: false,
-
-        authenticated: false
+        authenticated: false,
+        message: ''
     }
 
     loginHandler = () => {
@@ -48,6 +49,15 @@ class Login extends Component {
        formElement.value = event.target.value
        formData[id] = formElement
        this.setState({form: formData})
+    }
+    componentDidMount(){
+        if (this.props.location.state && this.props.location.state.error) {
+            this.setState({message: this.props.location.state.error}) 
+            this.props.history.replace({
+                pathname: this.props.location.pathname,
+                state: {}
+            });
+        }
     }
     render() {
         const formElements =  []
@@ -80,6 +90,10 @@ class Login extends Component {
                 }}
             </AuthContext.Consumer>
         )
+        let error = null
+        if(this.state.message){
+            error = <Error>{this.state.message}</Error>
+        }
         if(this.state.loading)
             form = <Spinner />
         return (
@@ -89,6 +103,7 @@ class Login extends Component {
                     <Logo />
                 </div>
                 <h1>Login to dashboard</h1>
+                {error}
                 {form}
             </div>
         );
