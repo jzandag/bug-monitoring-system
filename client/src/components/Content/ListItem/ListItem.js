@@ -7,7 +7,7 @@ const ListItem = (props) => {
     return (
         <div className={classes.ListItem}>
             <Link to={{
-                pathname: '/bugs/'+ props.id
+                pathname: '/bugs/all'
                 }}>
                 {props.name}
             </Link>

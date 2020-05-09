@@ -3,4 +3,36 @@
     border: orangered 1px solid;
     box-sizing: border-box;
     min-height: 200px;
+    height: auto;
+    background-color: #CEFBE3;
+    border-radius: 20px;
+    position: relative;
+}
+
+.Header{
+    border-bottom: black 2px solid;
+}
+.Header h1{
+    height: 100%;
+    text-indent: 25px;
+    margin: 10px 0;
+}
+.Footer{
+    text-align: right;
+}
+.Footer button{
+    padding: 8px;
+    margin: 10px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: black;
+    border: #1D1D35 solid 1px;
+    background-color: #CEFBE3;
+
+}
+
+.Footer button:focus,
+.Footer button:hover{
+    cursor: pointer;
+    outline: none;
 }

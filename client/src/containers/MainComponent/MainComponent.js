@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import Layout from '../Layout/Layout';
 import Login from '../Login/Login'
+import ViewBugs from '../../components/Content/ViewBugs/ViewBugs';
+import ViewBug from '../../components/Content/ViewBugs/ViewBug/ViewBug';
 
 class MainComponent extends Component {
     state = {
@@ -38,7 +40,10 @@ class MainComponent extends Component {
                 <Switch>
                     <Route path="/login" exact component={Login}/>
                     <ProtectedRoute path="/dashboard" exact component={Layout} />
-                    <Route path="*"  component={() => <p>Component not found</p>} />
+                    <ProtectedRoute path='/bugs/all' exact component={ViewBugs}/>
+                    <ProtectedRoute path='/bugs/me' exact component={ViewBugs}/>
+                    <ProtectedRoute path='/bugs/:id' component={ViewBug}/>
+                    <Route path="*"  component={() => <p style={{textAlign: 'center'}}>Component not found</p>} />
                 </Switch>
                 </AuthContext.Provider>
             </React.Fragment>
