@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './MyBugs.module.css'
 import ListItem from "../ListItem/ListItem";
+import { Link } from 'react-router-dom';
 
 const MyBugs = (props) => {
     let listItems = <p>No bugs assigned yet!</p>;
@@ -15,6 +16,7 @@ const MyBugs = (props) => {
             <div className={classes.Header}>
                 <h1>My Bugs</h1>
             </div>
+            {listItems}
             <article>
                 {/* {listItems} */}
                 <ListItem id='ffff' name='Bug sampler' dateCreated='Oct 6, 1998' createdBy='Zidrex' /> 
@@ -25,6 +27,10 @@ const MyBugs = (props) => {
             </article>
             <div className={classes.Footer}>
                 <button >See more</button>
+                <Link to={{
+                    pathname: 'viewBug/me',
+                    state: props.mybugs
+                }}>See more</Link>
             </div>
         </div>
     );

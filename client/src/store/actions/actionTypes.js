@@ -1,0 +1,25 @@
+//AUTH 
+export const AUTH_START = 'AUTH_START'
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_FAIL = 'AUTH_FAIL'
+export const AUTH_LOGOUT = 'AUTH_LOGOUT'
+export const SET_AUTH_REDIRECT_PATH = 'SET_AUTH_REDIRECT_PATH'
+
+//BUGS
+export const ALL_BUGS_START = 'ALL_BUGS_START'
+export const ALL_BUGS_SUCCESS = 'ALL_BUGS_SUCCESS'
+export const ALL_BUGS_FAIL = 'ALL_BUGS_FAIL'
+export const MY_BUGS_START = 'MY_BUGS_START'
+export const MY_BUGS_SUCCESS = 'MY_BUGS_SUCCESS'
+export const MY_BUGS_FAIL = 'MY_BUGS_FAIL'
+
+//LOGS
+export const LOGS_START = 'LOGS_START'
+export const LOGS_SUCCESS = 'LOGS_SUCCESS'
+export const LOGS_FAIL = 'LOGS_FAIL'
+
+//PROJECT
+export const PROJECT_START = 'PROJECT_START' 
+export const PROJECT_SUCCESS = 'PROJECT_SUCCESS' 
+export const PROJECT_FAIL = 'PROJECT_FAIL'
+

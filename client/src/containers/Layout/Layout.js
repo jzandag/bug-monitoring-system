@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import classes from './Layout.module.css'
 import MenuBar from '../../components/Navigation/MenuBar/MenuBar';
 import Button from '../../components/UI/Button/Button';
-import AuthContext from '../../context/AuthContext';
 import Sidebar from '../../components/Navigation/SideBar/Sidebar';
-import Content from '../../components/Content/Content'
+import Content from '../Content/Content'
+
+import { connect } from 'react-redux';
+import * as actions from "../../store/actions";
+import { Redirect } from 'react-router-dom';
 
 class Layout extends Component {
     state = {
@@ -16,22 +19,38 @@ class Layout extends Component {
     }
 
     render() {
+        let authRedirect = <Redirect to="/logout"/>
+        if(this.props.isAuthenticated)
+            authRedirect = null
         return (
             <React.Fragment>
-                <MenuBar click={this.showSidebarHandler}/>
+                {authRedirect}
+                <MenuBar 
+                    isAuth={this.props.isAuthenticated} 
+                    click={this.showSidebarHandler}
+                    logout={this.props.onLogout}
+                    />
                 <Sidebar show={this.state.showSidebar} click={this.showSidebarHandler} />
-                <AuthContext.Consumer>
-                    {context => {
-                        return <main className={classes.Content}>
-                                <Content />
-                                {/* TODO MAIN CONTENT */}
-                                <Button buttonType='Success' clicked={context.logout}/>
-                            </main>
-                    }}    
-                </AuthContext.Consumer>
+                <main className={classes.Content}>
+                    <Content />
+                    {/* TODO MAIN CONTENT */}
+                    <Button buttonType='Success' clicked={this.props.onLogout}/>
+                </main>
             </React.Fragment>
         );
     }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogout: () => dispatch(actions.authLogout())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

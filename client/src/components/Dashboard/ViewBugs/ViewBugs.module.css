@@ -1,0 +1,14 @@
+.ViewBugs{
+    width: 80%;
+    margin: 50px auto;
+    min-height: 400px;
+    padding: 20px;
+    background-color: darkred;
+}
+
+.Header {
+    display: inline;
+    padding: 10px;
+}.Header h1{
+    display: inline;
+}
