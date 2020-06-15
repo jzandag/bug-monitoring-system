@@ -96,8 +96,8 @@ class Login extends Component {
             </form>  
         )
         let error = null
-        if(this.props.message){
-            error = <Error>{this.props.message}</Error>
+        if(this.props.error){
+            error = <Error>{this.props.error.message}</Error>
         }
         if(this.props.loading)
             form = <Spinner />

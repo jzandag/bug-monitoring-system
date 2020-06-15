@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const auth = require('../../middleware/auth')
 //models
 const Bug = require('../../models/Bug')
 const BugHistory = require('../../models/BugHistory')
@@ -29,11 +29,15 @@ router.post('/', async (req,res) => {
 })
 
 //Read
-router.get('/', async (req,res) => {
+router.get('/', auth, async (req,res) => {
     try {
         const bugs = await Bug.find()
+        await bugs.map(async bug => {
+            await bug.populate('user').execPopulate()
+        })
         res.send(bugs)
     } catch (error) {
+        console.log(error);
         res.status(500).send(error)
     }
 })
@@ -47,6 +51,9 @@ router.get('/:id', async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
+})
+router.get('/mine', async (req,res) => {
+    
 })
 
 //Update

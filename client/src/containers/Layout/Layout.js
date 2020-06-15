@@ -20,11 +20,10 @@ class Layout extends Component {
 
     render() {
         let authRedirect = <Redirect to="/logout"/>
-        if(this.props.isAuthenticated)
+        if(this.props.isAuth)
             authRedirect = null
         return (
             <React.Fragment>
-                {authRedirect}
                 <MenuBar 
                     isAuth={this.props.isAuthenticated} 
                     click={this.showSidebarHandler}

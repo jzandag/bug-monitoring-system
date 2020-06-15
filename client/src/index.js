@@ -7,10 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers ,compose , applyMiddleware} from 'redux'
 import { Provider } from "react-redux";
 import authReducer from './store/reducers/auth'
+import bugsReducer from './store/reducers/bugs'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    bugs: bugsReducer
 })
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;

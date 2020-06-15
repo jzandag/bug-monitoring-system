@@ -79,7 +79,9 @@ userSchema.methods.toJSON = function (){
 userSchema.methods.generateAuthToken = async function() {
     const user = this
 
-    const token = await jwt.sign({_id: user._id.toString()}, process.env.JWT_SECRET)
+    const token = await jwt.sign({_id: user._id.toString()}, process.env.JWT_SECRET, {
+        expiresIn: '1h'
+    })
     
     user.tokens = user.tokens.concat({token})
     await user.save()
@@ -90,7 +92,6 @@ userSchema.methods.generateAuthToken = async function() {
 userSchema.statics.findByCredentials = async (email, password)=>{
 
     const user = await User.findOne({email,})
-
     if(!user)
         throw new Error('No such user with email')
 

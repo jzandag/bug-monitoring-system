@@ -36,6 +36,12 @@ BugSchema.virtual('history', {
     foreignField: 'bug'
 })
 
+BugSchema.virtual('user', {
+    ref: 'users',
+    localField: 'createdBy',
+    foreignField: '_id'
+})
+
 BugSchema.pre('remove', async function(next){
     const bug = this
 

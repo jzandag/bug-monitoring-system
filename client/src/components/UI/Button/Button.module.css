@@ -1,6 +1,6 @@
 .Button {
     background-color: transparent;
-    border: none;
+    border: 2px solid white;
     color: white;
     outline: none;
     cursor: pointer;
@@ -17,6 +17,8 @@
 
 .Success {
     color: #5C9210;
+    border-radius: 15px;
+    background-color: white;
 }
 
 .Danger {

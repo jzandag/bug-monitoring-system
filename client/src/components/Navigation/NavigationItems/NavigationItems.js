@@ -11,6 +11,7 @@ class NavigationItems extends Component {
                 <NavigationItem link="/orders">My bugs</NavigationItem>
                 <NavigationItem link="/orders">All bugs</NavigationItem>
                 <NavigationItem link="/orders">Projects</NavigationItem>
+                <NavigationItem link="/bugProfile">Create a bug</NavigationItem>
             </div>
         );
     }

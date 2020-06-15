@@ -8,6 +8,7 @@ import * as actions from './store/actions/'
 import Login from './containers/Login/Login';
 import Layout from './containers/Layout/Layout';
 import ViewBugs from './components/Dashboard/ViewBugs/ViewBugs';
+import BugProfile from './containers/Bugs/BugProfile';
 
 class App extends Component {
 
@@ -16,21 +17,28 @@ class App extends Component {
     }
 
     render(){
+        let routes = (
+            <Switch>
+                <Route path="/login" exact component={Login}/>
+                <Route path="/bugProfile" exact component={BugProfile}/>
+                <Redirect to="/login" />
+            </Switch>
+        )
         let authRedirect = <Redirect to="/login" />
         if(this.props.isAuthenticated){
             authRedirect = null
-        }
-        return (
-            <BrowserRouter className="App">
+            routes = 
                 <Switch>
-                    <Route path="/login" exact component={Login}/>
                     <Route path="/dashboard" exact component={Layout} />
                     <Route path='/bugs/all' exact component={ViewBugs}/>
                     <Route path='/bugs/me' exact component={ViewBugs}/>
                     <Route path='/bugs/:id' component={ViewBugs}/>
-                    {/* <Route path="*"  component={() => <p style={{textAlign: 'center'}}>Component not found</p>} /> */}
-                    {authRedirect}
+                    <Redirect to="/dashboard" />
                 </Switch>
+        }
+        return (
+            <BrowserRouter className="App">
+                {routes}
             </BrowserRouter>
         );
     }

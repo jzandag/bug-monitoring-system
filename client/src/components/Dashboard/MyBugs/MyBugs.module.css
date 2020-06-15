@@ -2,7 +2,7 @@
     grid-area: mybugs;
     border: solid springgreen 1px;
     box-sizing: border-box;
-    min-height: 200px;
+    min-height: 100px;
     height: auto;
     background-color: #CEFBE3;
     border-radius: 20px;
@@ -32,6 +32,8 @@
 
 .Footer button:focus,
 .Footer button:hover{
+    background-color: black;
+    color: white;
     cursor: pointer;
     outline: none;
 }
