@@ -42,7 +42,8 @@ class BugProfile extends Component {
                     options: [
                         {value: '1', displayValue: 'Urgent'},
                         {value: '2', displayValue: 'Crash'},
-                        {value: '3', displayValue: 'Normal'}
+                        {value: '3', displayValue: 'Normal'},
+                        {value: '3', displayValue: 'Non-importance'}
                     ],
                 },
                 value: 'fastest',
